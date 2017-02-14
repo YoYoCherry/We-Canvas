@@ -1,5 +1,5 @@
 # We-Canvas
-##We-Canvas之WaveImage
+##1.We-Canvas之WaveImage
 
 ###效果图： 
 
@@ -103,3 +103,22 @@
  
 ####Tip：
 这里采用的定时器是通过requestAnimationFrame（）函数实现的， 弃用setInterval的原因是实际测试中有卡帧现象并且动画显示有细微的不连续。
+
+
+##2.We-Canvas之Particle 
+
+###效果图： 
+
+![](http://i1.piimg.com/4851/0541915c0b449ae6.gif)  
+ 
+###实现原理：  
+比较简单，通过绘制两条三阶贝塞尔曲线即可绘制爱心图形， 但如何实现粒子逐个显示呢？  
+其实很简单，通过第一篇文章我们很容易获取贝塞尔曲线上每个点的坐标值， 我们绘制运动轨迹第一个点时调用ctx.draw()方法，后续所有点都采用ctx.draw(true)方法即可实现粒子逐个显示。 其中的参数true官方文档有说明，如下：  
+  	"reserve	Boolean	非必填。本次绘制是否接着上一次绘制，即reserve参数为false，则在本次调用drawCanvas绘制之前native层应先清空画布再继续绘制；若reserver参数为true，则保留当前画布上的内容，本次调用drawCanvas绘制的内容覆盖在上面，默认 false"  
+
+  
+---  
+####举一反三：
+练习了这个demo，是不是感觉 贪吃蛇小游戏是不是这种套路啊 ？！
+
+
