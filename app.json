@@ -3,6 +3,7 @@
     "pages/main/main",
     "pages/about/about",
     "pages/waveimage/waveimage",
+    "pages/loveparticle/loveparticle",
     "pages/me/me",
     "pages/logs/logs"
   ],
