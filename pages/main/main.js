@@ -1,7 +1,7 @@
 // pages/main/main.js
 Page({
   data:{
-      txs:['waveImage'],
+      txs:['waveImage','loveparticle'],
       url:''
   },
   onLoad:function(options){
@@ -18,6 +18,10 @@ Page({
           tempTitle = '../waveimage/waveimage'
           
           break;
+        case 1:
+          tempTitle = '../loveparticle/loveparticle'
+        
+        break;
        
       }
       wx.navigateTo({
