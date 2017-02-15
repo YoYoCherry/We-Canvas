@@ -4,6 +4,7 @@
     "pages/about/about",
     "pages/waveimage/waveimage",
     "pages/loveparticle/loveparticle",
+    "pages/flappybird/flappybird",
     "pages/me/me",
     "pages/logs/logs"
   ],
