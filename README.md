@@ -119,6 +119,103 @@
   
 ---  
 ####举一反三：
-练习了这个demo，是不是感觉 贪吃蛇小游戏是不是这种套路啊 ？！
+练习了这个demo，是不是感觉 贪吃蛇小游戏是不是这种套路啊 ？！  
+
+
+
+
+##3.We-Canvas之FlappyBird
+
+###效果图： 
+
+![](http://p1.bpimg.com/4851/5a1f2229033ee2ce.gif)
+
+###实现细节： 
+ 
+####JS逻辑:  
+ 
+######主要包括 小鸟下降逻辑、随机空隙管道逻辑、 单机屏幕事件、碰撞事件、计数逻辑   
+---
+小鸟下降：
+<pre>
+birdDown:function(){
+    ctx.clearRect(0, 0, res.windowWidth, res.windowHeight)
+    bird.y += bird.factor
+    ctx.drawImage(birds[Math.floor(Math.random()*2)], bird.x, bird.y, bird.px, bird.px)
+
+    ctx.draw()
+
+    timer1 = requestAnimationFrame(this.birdDown)
+
+   
+    if( bird.y>res.windowHeight){
+      cancelAnimationFrame(timer1)
+     
+}
+</pre>
+
+随机空隙管道：
+<pre>
+  pipe:function(){
+	pipe.x-=pipe.factor
+	bird.y += bird.factor
+	if(pipe.x <-pipe.width){
+	    pipe.x = res.windowWidth
+	    gapHeightY = Math.floor(Math.random()*(res.windowHeight-200))+20
+	
+	}
+	ctx.drawImage('../../images/flappybird/pipe_down.png', pipe.x, 0, pipe.width, gapHeightY)
+	ctx.drawImage('../../images/flappybird/pipe_up.png', pipe.x, gapHeightY+gapHeight, pipe.width,          res.windowHeight-gapHeightY-gapHeight)
+  }
+</pre>
+
+单机屏幕事件：
+<pre>
+	bird.y -= bird.factor2
+
+	//  只需改变bird的y坐标值即可
+</pre>
+
+
+碰撞事件：
+<pre>
+// 这里加了一个插值数10，目的是为了更贴近碰撞
+  crash:function(){
+      bird.cX = bird.x+bird.px-10
+      bird.cY = bird.y
+      pipe.cX = pipe.x
+      pipe.cY = gapHeightY
+      if(bird.cX > pipe.cX & bird.cY < pipe.cY-10 ){
+          if(bird.cX < pipe.cX+pipe.width){
+              cancelAnimationFrame(timer1)
+              this.gameOver();
+          }
+          
+      }else if(bird.cX > pipe.cX & bird.cY+bird.px > pipe.cY+gapHeight+10){
+          if(bird.cX < pipe.cX+pipe.width){
+             cancelAnimationFrame(timer1)
+             this.gameOver();
+          }
+         
+      }
+
+  },
+</pre>
+
+计数逻辑：
+<pre>
+// 根据小鸟x坐标和管道宽度进行判断   每完成一次就加1
+if(pipe.x ==10){
+      bnum+=1;
+      console.log(bnum)
+      this.setData({
+        bird_number:bnum
+      })
+    }
+</pre>
+
+
+
+
 
 
