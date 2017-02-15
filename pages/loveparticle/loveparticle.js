@@ -19,8 +19,14 @@ var points=[{x:2,y:4},{x:20,y:10},{x:30,y:40},{x:30,y:50},{x:50,y:70}];
 Page({
   data:{},
   onLoad:function(options){
-    var that = this
     // 页面初始化 options为页面跳转所带来的参数
+    wx.setNavigationBarTitle({
+      title: options.title,
+      success: function(res) {
+        // success
+      }
+    })
+    var that = this
     ctx = wx.createCanvasContext('canvas_ct')
     points.splice(0,points.length)
     factor1.t = 0;

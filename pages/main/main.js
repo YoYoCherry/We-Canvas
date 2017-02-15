@@ -1,7 +1,7 @@
 // pages/main/main.js
 Page({
   data:{
-      txs:['waveImage','loveparticle'],
+      txs:['waveimage','loveparticle','flappybird'],
       url:''
   },
   onLoad:function(options){
@@ -10,22 +10,11 @@ Page({
   },
  
   onItemClick : function(e){
-      console.log(e.currentTarget.dataset.id)
-      this.url='?title='+this.data.txs[e.currentTarget.dataset.id]
-      var tempTitle=''
-      switch(e.currentTarget.dataset.id){
-        case 0:
-          tempTitle = '../waveimage/waveimage'
-          
-          break;
-        case 1:
-          tempTitle = '../loveparticle/loveparticle'
-        
-        break;
-       
-      }
+      var tempTitle=e.currentTarget.dataset.id
+      this.url='?title='+tempTitle.substring(tempTitle.lastIndexOf('/')+1)
       wx.navigateTo({
           url: tempTitle+this.url,
+          
           success: function(res){
             // success
           },
