@@ -217,5 +217,13 @@ if(pipe.x ==10){
 
 
 
+##4.We-Canvas之GracefulIndex
+
+###效果图： 
+![](http://p1.bpimg.com/567571/083acca9c02bcee6.gif)
+
+
+
+
 
 
