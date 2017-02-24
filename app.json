@@ -5,6 +5,7 @@
     "pages/waveimage/waveimage",
     "pages/loveparticle/loveparticle",
     "pages/flappybird/flappybird",
+    "pages/gracefulindex/gracefulindex",
     "pages/me/me",
     "pages/logs/logs"
   ],
