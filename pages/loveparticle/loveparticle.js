@@ -84,7 +84,7 @@ Page({
     }else{
         ctx.draw()
     }
-    
+
     
     if( factor.t >1){
         factor.t = 0
@@ -93,6 +93,7 @@ Page({
         },30)
         clearInterval(timer1)
      }
+
   },
 
 

@@ -1,7 +1,7 @@
 // pages/main/main.js
 Page({
   data:{
-      txs:['waveimage','loveparticle','flappybird'],
+      txs:['waveimage','loveparticle','flappybird','gracefulindex'],
       url:''
   },
   onLoad:function(options){
